@@ -1,3 +1,6 @@
+from ast import In
+
+
 def top_n(items, n):
     """Function that returns the top n items from a list, in descending order.
     Args:
@@ -9,7 +12,7 @@ def top_n(items, n):
         >>> top_n([8,9,5,7,3,4,1,0], 3)
         [9,8,7]
     """
-    for i in range(n):  # Keep sorting until we have the top n items. This loop runs n times.
+    for i in range(n):  # Keep sorting until we have the top n items. This is a "for" loop that runs n times.
                         # If n = 3, it runs: i = 0
                         #                    i = 1
                         #                    i = 2
@@ -27,7 +30,12 @@ def top_n(items, n):
                 items[j] , items[j+1] = items[j+1] , items[j]   # Swap the two items
 
     # Get the last n items
-    top_n = items[-n:]  # This uses list slicing. -n means: Start from n elements from the end.
+    top_n = items[-n:]  # This uses list slicing. Square brackets after a list mean: “Access or slice this list.”
+                        # -n means: Start from n elements from the end. 
+                        # Python slicing follows this pattern: list[start : stop : step]. All three parts are optional.
+                        # In your case: items[-n:], You only provided: start = -n , stop = (nothing) , step = (nothing)
+                        # The minus sign means: “Count from the end of the list.”
+                        # The colon means: “Slice from this starting point to the end (since no stop value is given).”
                         # Example: items = [1,2,3,4,5] ; n = 2 ; items[-2:]
                         # Result: [4,5]
 
